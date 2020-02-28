@@ -1,0 +1,14 @@
+[user]
+	name = Alec Lavoie
+	email = alavoie3@gmail.com
+[alias]
+	ls = log --oneline
+	st = status -s
+	co = checkout
+	br = branch
+	cm = commit
+	p = push
+	oops = reset HEAD~1
+[push]
+	followTags = true
+	default = current
