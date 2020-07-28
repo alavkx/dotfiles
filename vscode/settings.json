@@ -1,0 +1,26 @@
+{
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": false,
+  "editor.tabSize": 2,
+  "editor.fontLigatures": true,
+  "workbench.activityBar.visible": false,
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "window.zoomLevel": 0,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
+  "breadcrumbs.enabled": false,
+  "workbench.editor.showTabs": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.accessibilitySupport": "off",
+  "editor.acceptSuggestionOnEnter": "off",
+  "files.associations": {
+    "*.html.eex": "HTML (EEx)"
+  },
+  "reason_language_server.autoRebuild": false,
+  "workbench.colorTheme": "Quiet Light",
+  "reason_language_server.per_value_codelens": true,
+  "editor.fontFamily": "MonoLisa, Monaco, 'Courier New', monospace"
+}
