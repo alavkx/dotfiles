@@ -9,7 +9,12 @@
 	cm = commit
 	p = push
 	oops = reset HEAD~1
-  rmb = "!f() { git branch --merged | grep -v "master" | while read i; do git branch -d $i; done; }; f"
 [push]
 	followTags = true
 	default = current
+[fetch]
+	prune = true
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true

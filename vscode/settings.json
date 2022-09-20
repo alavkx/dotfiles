@@ -1,26 +1,49 @@
 {
-  "workbench.sideBar.location": "right",
+  "task.allowAutomaticTasks": "off",
+  "git.mergeEditor": false,
+  "terminal.integrated.shellIntegration.enabled": true,
+  "workbench.preferredDarkColorTheme": "Andromeda Bordered",
+  "workbench.preferredLightColorTheme": "Quiet Light",
+  "window.commandCenter": false,
+  "workbench.sideBar.location": "left",
   "workbench.statusBar.visible": false,
+  "zenMode.hideTabs": true,
+  "zenMode.fullScreen": false,
+  "zenMode.restore": true,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 3,
   "editor.tabSize": 2,
   "editor.fontLigatures": true,
   "workbench.activityBar.visible": false,
   "editor.minimap.enabled": false,
   "editor.formatOnSave": true,
-  "window.zoomLevel": 0,
+  "editor.formatOnPaste": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "[yaml]": {
-    "editor.formatOnSave": false
-  },
   "breadcrumbs.enabled": false,
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.accessibilitySupport": "off",
   "editor.acceptSuggestionOnEnter": "off",
-  "files.associations": {
-    "*.html.eex": "HTML (EEx)"
+  "editor.fontFamily": "MonoLisa, Monaco, 'Courier New', monospace",
+  "security.workspace.trust.untrustedFiles": "open",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "reason_language_server.autoRebuild": false,
-  "workbench.colorTheme": "Quiet Light",
-  "reason_language_server.per_value_codelens": true,
-  "editor.fontFamily": "MonoLisa, Monaco, 'Courier New', monospace"
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.startupEditor": "readme",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "workbench.colorTheme": "Andromeda Bordered",
+  "task.problemMatchers.neverPrompt": {
+    "shell": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 1
 }
