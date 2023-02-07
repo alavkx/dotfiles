@@ -3,6 +3,7 @@
 	email = alavoie3@gmail.com
 [alias]
 	ls = log --oneline
+	lg = log --all --decorate --oneline --graph
 	st = status -s
 	co = checkout
 	br = branch
@@ -18,3 +19,5 @@
 	rebase = true
 [rebase]
 	autoStash = true
+[core]
+	editor = code --wait

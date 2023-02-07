@@ -25,7 +25,13 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.accessibilitySupport": "off",
   "editor.acceptSuggestionOnEnter": "off",
-  "editor.fontFamily": "MonoLisa, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "Martian Mono Std Lt",
+  "editor.codeLensFontFamily": "Martian Mono Std Lt",
+  "editor.inlayHints.fontFamily": "Martian Mono sWd Th",
+  "editor.inlayHints.fontSize": 8,
+  "editor.lineHeight": 1.65,
+  "terminal.integrated.fontSize": 9,
+  "markdown.preview.fontFamily": "Martian Mono Std Rg",
   "security.workspace.trust.untrustedFiles": "open",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -36,14 +42,44 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.startupEditor": "readme",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "workbench.colorTheme": "Andromeda Bordered",
   "task.problemMatchers.neverPrompt": {
     "shell": true
   },
-  "[jsonc]": {
+  "inlineFold.unfoldedOpacity": 0.9,
+  "inlineFold.unfoldOnLineSelect": true,
+  "inlineFold.maskChar": "→",
+  "workbench.iconTheme": "city-lights-icons-vsc",
+  "workbench.startupEditor": "none",
+  "vscode-pets.petSize": "medium",
+  "vscode-pets.petColor": "white",
+  "vscode-pets.petType": "totoro",
+  "editor.inlayHints.enabled": "off",
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "errorLens.followCursor": "activeLine",
+  "errorLens.delay": 1300,
+  "vscode-pets.position": "explorer",
+  "vscode-pets.theme": "forest",
+
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.wordWrap": "on",
+  "tailwindCSS.rootFontSize": 14,
+  "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.zoomLevel": 1
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }
