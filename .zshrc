@@ -11,8 +11,6 @@ alias a="git add ."
 alias "aa"="git add -A"
 alias rr="git reset head~1"
 alias oops="git reset head~1"
-alias dmr=$DISPENSE_MONOREPO_PATH
-alias D=$DISPENSE_MONOREPO_PATH
 CC() {
     git add -A
     git commit --amend --no-edit
@@ -23,5 +21,4 @@ cc() {
     git commit -m "fixup!"
     git push 
 }
-export PNPM_HOME="/Users/ichibanfuego/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PATH="$PATH"
