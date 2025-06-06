@@ -1,6 +1,6 @@
 # Dotfiles Management System
 
-**Opinionated, automated development environment management.** This tool takes care of the entire dotfiles workflow so you can focus on coding, not configuration maintenance.
+**Opinionated, automated development environment management.**
 
 ## Structure
 
