@@ -3,6 +3,8 @@
 DOTFILES_DIR := $(shell pwd)
 HOME_DIR := $(HOME)
 FILES := .zshrc .gitconfig
+VSCODE_DIR := $(HOME_DIR)/Library/Application Support/Code/User
+VSCODE_FILES := settings.json
 
 help: ## Show this help message
 	@echo 'Usage: make [target]'
@@ -54,6 +56,23 @@ status: ## Show current status of dotfiles
 				echo "⚠️  linked to $$target (not our dotfiles)"; \
 			fi; \
 		elif [ -f "$(HOME_DIR)/$$file" ]; then \
+			echo "📄 regular file (not linked)"; \
+		else \
+			echo "❌ missing"; \
+		fi; \
+	done
+	@echo "\nVSCode settings:"
+	@for file in $(VSCODE_FILES); do \
+		printf "$$file: "; \
+		vscode_file="$(VSCODE_DIR)/$$file"; \
+		if [ -L "$$vscode_file" ]; then \
+			target=$$(readlink "$$vscode_file"); \
+			if [ "$$target" = "$(DOTFILES_DIR)/vscode/$$file" ]; then \
+				echo "✅ correctly linked"; \
+			else \
+				echo "⚠️  linked to $$target (not our dotfiles)"; \
+			fi; \
+		elif [ -f "$$vscode_file" ]; then \
 			echo "📄 regular file (not linked)"; \
 		else \
 			echo "❌ missing"; \

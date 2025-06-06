@@ -7,7 +7,6 @@
   "window.commandCenter": false,
   "workbench.sideBar.location": "left",
   "workbench.statusBar.visible": false,
-  "zenMode.hideTabs": true,
   "zenMode.fullScreen": false,
   "zenMode.restore": true,
   "workbench.editor.limit.enabled": true,
@@ -15,13 +14,12 @@
   "workbench.editor.limit.value": 3,
   "editor.tabSize": 2,
   "editor.fontLigatures": true,
-  "workbench.activityBar.visible": false,
   "editor.minimap.enabled": false,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": false,
-  "workbench.editor.showTabs": true,
+  "workbench.editor.showTabs": "multiple",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.accessibilitySupport": "off",
   "editor.acceptSuggestionOnEnter": "off",
@@ -48,6 +46,13 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[yaml]": {
+    "editor.defaultFormatter": "bluebrown.yamlfmt"
+  },
+  "[yml]": {
+    "editor.defaultFormatter": "bluebrown.yamlfmt"
+  },
+  "files.insertFinalNewline": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "workbench.colorTheme": "Andromeda Bordered",
   "task.problemMatchers.neverPrompt": {
@@ -56,20 +61,13 @@
   "inlineFold.unfoldedOpacity": 0.9,
   "inlineFold.unfoldOnLineSelect": true,
   "inlineFold.maskChar": "→",
-  "workbench.iconTheme": "city-lights-icons-vsc",
   "workbench.startupEditor": "none",
-  "vscode-pets.petSize": "medium",
-  "vscode-pets.petColor": "white",
-  "vscode-pets.petType": "totoro",
   "editor.inlayHints.enabled": "off",
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.inlayHints.parameterNames.enabled": "all",
   "typescript.inlayHints.parameterTypes.enabled": true,
   "errorLens.followCursor": "activeLine",
   "errorLens.delay": 1300,
-  "vscode-pets.position": "explorer",
-  "vscode-pets.theme": "forest",
-
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.wordWrap": "on",
   "tailwindCSS.rootFontSize": 14,
@@ -81,5 +79,9 @@
   },
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "workbench.activityBar.location": "hidden",
+  "zenMode.showTabs": "single",
+  "workbench.iconTheme": "city-lights-icons-vsc",
+  "redhat.telemetry.enabled": false
 }
