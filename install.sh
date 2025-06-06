@@ -75,4 +75,38 @@ else
     echo "Warning: Brewfile not found in dotfiles directory"
 fi
 
-echo "Done! Remember to restart your shell or run 'source ~/.zshrc'" 
+# Set up global config command
+setup_global_config() {
+    local config_script="$DOTFILES_DIR/config"
+    local target_dir="$HOME/.local/bin"
+    local target_path="$target_dir/config"
+    
+    if [[ -f "$config_script" ]]; then
+        mkdir -p "$target_dir"
+        
+        if [[ -L "$target_path" ]]; then
+            echo "Updating global config command symlink"
+            rm "$target_path"
+        elif [[ -f "$target_path" ]]; then
+            echo "Backing up existing config command: $target_path -> $target_path.backup"
+            mv "$target_path" "$target_path.backup"
+        fi
+        
+        echo "Linking global config command: $config_script -> $target_path"
+        ln -s "$config_script" "$target_path"
+        
+        # Store dotfiles path for the config command
+        echo "$DOTFILES_DIR" > "$HOME/.dotfiles_path"
+        
+        # Check if ~/.local/bin is in PATH
+        if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+            echo "⚠️  Add ~/.local/bin to your PATH to use 'config' globally"
+            echo "   Add this to your shell config: export PATH=\"\$HOME/.local/bin:\$PATH\""
+        fi
+    fi
+}
+
+setup_global_config
+
+echo "Done! Remember to restart your shell or run 'source ~/.zshrc'"
+echo "You can now use 'config <command>' from anywhere (if ~/.local/bin is in PATH)" 

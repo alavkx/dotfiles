@@ -6,8 +6,10 @@ Personal configuration files managed via symlinks.
 
 ```bash
 make install    # Install all dotfiles
-make status     # Check current state
+config status   # Check current state (from anywhere!)
 ```
+
+The `config` command is globally accessible after installation - use it from any directory.
 
 ## Files
 
@@ -20,25 +22,27 @@ make status     # Check current state
 
 **Core Commands:**
 
-- `make install` - Install dotfiles and extensions
-- `make status` - Show current symlink status
-- `make sync` - Export current state to dotfiles
-- `make diff` - Show what needs syncing
+- `config install` - Install dotfiles and extensions
+- `config status` - Show current symlink status
+- `config sync` - Export current state to dotfiles
+- `config diff` - Show what needs syncing
 
 **Maintenance:**
 
-- `make test` - Run full test suite
-- `make verify` - Verify all links are correct
-- `make backup` - Create timestamped backups
-- `make clean` - Remove symlinks and restore backups
-- `make cleanup` - Remove unmanaged packages
+- `config test` - Run full test suite
+- `config verify` - Verify all links are correct
+- `config backup` - Create timestamped backups
+- `config clean` - Remove symlinks and restore backups
+- `config cleanup` - Remove unmanaged packages
+
+> **Note:** Use `make <command>` when in the dotfiles directory, or `config <command>` from anywhere.
 
 ## Sync Workflow
 
 When you install new packages, extensions, or change settings:
 
 ```bash
-make sync          # Export current state to dotfiles
+config sync        # Export current state to dotfiles
 git add -A         # Stage changes
 git commit -m "Update packages and extensions"
 git push           # Sync to GitHub
@@ -48,7 +52,7 @@ On other machines:
 
 ```bash
 git pull           # Get latest dotfiles
-make install       # Install new packages/extensions/settings
+config install     # Install new packages/extensions/settings
 ```
 
 ## Cleanup
@@ -56,5 +60,5 @@ make install       # Install new packages/extensions/settings
 Remove packages not managed by dotfiles:
 
 ```bash
-make cleanup       # Interactive removal of unmanaged packages
+config cleanup     # Interactive removal of unmanaged packages
 ```

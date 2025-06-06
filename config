@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Global dotfiles config command
+# Usage: config <command> [args...]
+
+# Find dotfiles directory
+DOTFILES_DIR=""
+
+# Try to find dotfiles directory in common locations
+if [[ -f "$HOME/.dotfiles_path" ]]; then
+    DOTFILES_DIR=$(cat "$HOME/.dotfiles_path")
+elif [[ -d "$HOME/dotfiles" ]]; then
+    DOTFILES_DIR="$HOME/dotfiles"
+elif [[ -d "$HOME/.dotfiles" ]]; then
+    DOTFILES_DIR="$HOME/.dotfiles"
+elif [[ -d "$HOME/code/dotfiles" ]]; then
+    DOTFILES_DIR="$HOME/code/dotfiles"
+else
+    echo "❌ Cannot find dotfiles directory"
+    echo "Create ~/.dotfiles_path with the path to your dotfiles, or ensure dotfiles are in:"
+    echo "  ~/dotfiles, ~/.dotfiles, or ~/code/dotfiles"
+    exit 1
+fi
+
+# Verify dotfiles directory exists and has Makefile
+if [[ ! -d "$DOTFILES_DIR" ]] || [[ ! -f "$DOTFILES_DIR/Makefile" ]]; then
+    echo "❌ Invalid dotfiles directory: $DOTFILES_DIR"
+    echo "Directory must contain a Makefile"
+    exit 1
+fi
+
+# Change to dotfiles directory and run make
+cd "$DOTFILES_DIR" || exit 1
+
+# If no arguments, show help
+if [[ $# -eq 0 ]]; then
+    make help
+    exit 0
+fi
+
+# Pass all arguments to make
+make "$@" 
