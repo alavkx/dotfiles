@@ -65,21 +65,12 @@ cd your-dotfiles
 make install       # Installs everything
 ```
 
-### On Other Machines
-
-```bash
-git pull           # Get latest changes
-config install     # Install new packages/extensions/settings
-```
-
 **Why Opinionated?** You shouldn't waste time on dotfiles maintenance. This tool makes decisions for you:
 
 - Automatic commit messages with timestamps
 - Standardized file structure
 - Integrated git operations
 - One command does everything
-
-> **For Power Users:** Use `config pull` if you want to export state without git operations (e.g., to review changes before committing)
 
 ## Cleanup
 
