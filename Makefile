@@ -50,7 +50,7 @@ sync: ## Pull current state + commit + push to git
 	@if git diff --staged --quiet; then \
 		echo "No changes to commit"; \
 	else \
-		git commit -m "Update dotfiles: $(shell date '+%Y-%m-%d %H:%M')" && \
+		git commit -m "[automated] sync config: $(shell date '+%Y-%m-%d %H:%M')" && \
 		git push; \
 	fi
 
