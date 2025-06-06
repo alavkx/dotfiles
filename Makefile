@@ -46,7 +46,7 @@ pull: ## Export current state to dotfiles
 sync: ## Pull current state + commit + push to git
 	@$(SCRIPTS_DIR)/sync.sh
 	@echo "⬆️  Pushing changes..."
-	@git add -A
+	@git add home/
 	@if git diff --staged --quiet; then \
 		echo "No changes to commit"; \
 	else \
