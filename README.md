@@ -19,18 +19,32 @@ make status     # Check current state
 
 **Core Commands:**
 
-- `make install` - Install dotfiles and VSCode extensions
+- `make install` - Install dotfiles and extensions
 - `make status` - Show current symlink status
-- `make test` - Run full test suite
-- `make verify` - Verify all links are correct
+- `make sync` - Export current state to dotfiles
+- `make diff` - Show what needs syncing
 
 **Maintenance:**
 
+- `make test` - Run full test suite
+- `make verify` - Verify all links are correct
 - `make backup` - Create timestamped backups
 - `make clean` - Remove symlinks and restore backups
 
-**VSCode:**
+## Sync Workflow
 
-- `make vscode-export` - Export current extensions
-- `make vscode-install` - Install extensions from list
-- `make vscode-diff` - Compare installed vs dotfiles
+When you install new extensions or change settings:
+
+```bash
+make sync          # Export current state to dotfiles
+git add -A         # Stage changes
+git commit -m "Update extensions"
+git push           # Sync to GitHub
+```
+
+On other machines:
+
+```bash
+git pull           # Get latest dotfiles
+make install       # Install new extensions/settings
+```

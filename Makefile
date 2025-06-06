@@ -1,4 +1,4 @@
-.PHONY: help install test status backup clean verify
+.PHONY: help install test status backup clean verify sync diff
 .PHONY: vscode-export vscode-install vscode-diff
 
 SCRIPTS_DIR := scripts
@@ -7,19 +7,16 @@ help: ## Show available commands
 	@echo 'Dotfiles Management'
 	@echo ''
 	@echo 'Core:'
-	@echo '  install      Install dotfiles and VSCode extensions'
+	@echo '  install      Install dotfiles and extensions'
 	@echo '  status       Show current symlink status'
-	@echo '  test         Run full test suite'
-	@echo '  verify       Verify all links are correct'
+	@echo '  sync         Export current state to dotfiles'
+	@echo '  diff         Show what needs syncing'
 	@echo ''
 	@echo 'Maintenance:'
+	@echo '  test         Run full test suite'
+	@echo '  verify       Verify all links are correct'
 	@echo '  backup       Create timestamped backup'
 	@echo '  clean        Remove symlinks and restore backups'
-	@echo ''
-	@echo 'VSCode:'
-	@echo '  vscode-export    Export current extensions'
-	@echo '  vscode-install   Install extensions from list'
-	@echo '  vscode-diff      Compare installed vs dotfiles'
 
 install: ## Install dotfiles and VSCode extensions
 	@chmod +x install.sh && ./install.sh
@@ -39,13 +36,20 @@ clean: ## Remove symlinks and restore from backup
 verify: ## Verify all dotfiles are properly linked
 	@$(SCRIPTS_DIR)/verify.sh
 
-vscode-export: ## Export current VSCode extensions
+sync: ## Export current state to dotfiles
+	@$(SCRIPTS_DIR)/sync.sh
+
+diff: ## Show what needs syncing
+	@$(SCRIPTS_DIR)/diff.sh
+
+# Internal VSCode commands (use 'sync' and 'diff' instead)
+vscode-export:
 	@$(SCRIPTS_DIR)/vscode-export.sh
 
-vscode-install: ## Install VSCode extensions from dotfiles
+vscode-install:
 	@$(SCRIPTS_DIR)/vscode-install.sh
 
-vscode-diff: ## Compare installed vs dotfiles extensions
+vscode-diff:
 	@$(SCRIPTS_DIR)/vscode-diff.sh
 
 # Aliases
