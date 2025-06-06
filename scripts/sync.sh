@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "Syncing current state to dotfiles..."
+echo "🔄 Syncing current state to dotfiles..."
 
 # Export VSCode extensions
 if command -v code >/dev/null 2>&1; then
@@ -24,4 +24,4 @@ fi
 # - System preferences
 # - Other tool configurations
 
-echo "✅ Sync completed" 
+echo "✅ Pull completed"
