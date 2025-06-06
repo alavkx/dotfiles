@@ -1,7 +1,8 @@
 #!/bin/bash
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXTENSIONS_FILE="$DOTFILES_DIR/.vscode/extensions.txt"
+HOME_FILES_DIR="$DOTFILES_DIR/home"
+EXTENSIONS_FILE="$HOME_FILES_DIR/.vscode/extensions.txt"
 
 echo "Comparing installed vs dotfiles extensions..."
 

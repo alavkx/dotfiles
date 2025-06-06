@@ -1,12 +1,13 @@
 #!/bin/bash
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-BREWFILE="$DOTFILES_DIR/Brewfile"
+HOME_FILES_DIR="$DOTFILES_DIR/home"
+BREWFILE="$HOME_FILES_DIR/Brewfile"
 
 echo "Installing Homebrew packages..."
 
 if [[ ! -f "$BREWFILE" ]]; then
-    echo "❌ Brewfile not found"
+    echo "❌ home/Brewfile not found"
     exit 1
 fi
 

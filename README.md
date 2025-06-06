@@ -1,6 +1,21 @@
-# Dotfiles
+# Dotfiles Management System
 
-Personal configuration files managed via symlinks.
+Personal configuration files managed with automated syncing and installation.
+
+## Structure
+
+```
+dotfiles/
+├── home/                    # Your actual dotfiles and configurations
+│   ├── .zshrc              # Shell configuration
+│   ├── .gitconfig          # Git settings
+│   ├── .vscode/            # VSCode settings and extensions
+│   └── Brewfile            # Homebrew packages
+├── scripts/                # Management scripts (project source)
+├── config                  # Global command (symlinked to ~/.local/bin/)
+├── install.sh              # Installation script
+└── Makefile               # Build system with clean API
+```
 
 ## Quick Start
 
@@ -10,13 +25,6 @@ config status   # Check current state (from anywhere!)
 ```
 
 The `config` command is globally accessible after installation - use it from any directory.
-
-## Files
-
-- `.zshrc` - Shell configuration with git aliases and environment setup
-- `.gitconfig` - Git configuration
-- `.vscode/` - VSCode settings and extensions
-- `Brewfile` - Homebrew packages and apps
 
 ## Usage
 

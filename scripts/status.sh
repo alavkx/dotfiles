@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+HOME_FILES_DIR="$DOTFILES_DIR/home"
 FILES=(".zshrc" ".gitconfig")
 VSCODE_DIR="$HOME/Library/Application Support/Code/User"
 VSCODE_FILES=("settings.json")
@@ -27,11 +28,11 @@ check_file_status() {
 
 echo "Dotfiles status:"
 for file in "${FILES[@]}"; do
-    check_file_status "$file" "$HOME/$file" "$DOTFILES_DIR/$file"
+    check_file_status "$file" "$HOME/$file" "$HOME_FILES_DIR/$file"
 done
 
 echo
 echo "VSCode settings:"
 for file in "${VSCODE_FILES[@]}"; do
-    check_file_status "$file" "$VSCODE_DIR/$file" "$DOTFILES_DIR/.vscode/$file"
+    check_file_status "$file" "$VSCODE_DIR/$file" "$HOME_FILES_DIR/.vscode/$file"
 done 

@@ -1,7 +1,8 @@
 #!/bin/bash
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-BREWFILE="$DOTFILES_DIR/Brewfile"
+HOME_FILES_DIR="$DOTFILES_DIR/home"
+BREWFILE="$HOME_FILES_DIR/Brewfile"
 
 echo "Comparing installed vs Brewfile packages..."
 

@@ -28,7 +28,7 @@ else
 fi
 
 echo "Verifying symlink was created:"
-if ls -la ~/.zshrc | grep -q "$(cd "$SCRIPT_DIR/.." && pwd)"; then
+if ls -la ~/.zshrc | grep -q "$(cd "$SCRIPT_DIR/.." && pwd)/home"; then
     echo "✅ Symlink created"
 else
     echo "❌ Symlink failed"
