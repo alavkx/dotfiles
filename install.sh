@@ -63,4 +63,16 @@ else
     echo "Warning: .vscode/extensions.txt not found in dotfiles directory"
 fi
 
+if [[ -f "$DOTFILES_DIR/Brewfile" ]]; then
+    if command -v brew >/dev/null 2>&1; then
+        echo "Installing Homebrew packages..."
+        brew bundle install --file="$DOTFILES_DIR/Brewfile"
+    else
+        echo "Warning: Homebrew not found, skipping package installation"
+        echo "Install from: https://brew.sh"
+    fi
+else
+    echo "Warning: Brewfile not found in dotfiles directory"
+fi
+
 echo "Done! Remember to restart your shell or run 'source ~/.zshrc'" 

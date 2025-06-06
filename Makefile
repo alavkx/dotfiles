@@ -1,5 +1,5 @@
-.PHONY: help install test status backup clean verify sync diff
-.PHONY: vscode-export vscode-install vscode-diff
+.PHONY: help install test status backup clean verify sync diff cleanup
+.PHONY: vscode-export vscode-install vscode-diff brew-export brew-install brew-diff brew-cleanup
 
 SCRIPTS_DIR := scripts
 
@@ -17,6 +17,7 @@ help: ## Show available commands
 	@echo '  verify       Verify all links are correct'
 	@echo '  backup       Create timestamped backup'
 	@echo '  clean        Remove symlinks and restore backups'
+	@echo '  cleanup      Remove unmanaged packages'
 
 install: ## Install dotfiles and VSCode extensions
 	@chmod +x install.sh && ./install.sh
@@ -42,7 +43,10 @@ sync: ## Export current state to dotfiles
 diff: ## Show what needs syncing
 	@$(SCRIPTS_DIR)/diff.sh
 
-# Internal VSCode commands (use 'sync' and 'diff' instead)
+cleanup: ## Remove unmanaged packages
+	@$(SCRIPTS_DIR)/cleanup.sh
+
+# Internal tool commands (use 'sync', 'diff', and 'cleanup' instead)
 vscode-export:
 	@$(SCRIPTS_DIR)/vscode-export.sh
 
@@ -51,6 +55,18 @@ vscode-install:
 
 vscode-diff:
 	@$(SCRIPTS_DIR)/vscode-diff.sh
+
+brew-export:
+	@$(SCRIPTS_DIR)/brew-export.sh
+
+brew-install:
+	@$(SCRIPTS_DIR)/brew-install.sh
+
+brew-diff:
+	@$(SCRIPTS_DIR)/brew-diff.sh
+
+brew-cleanup:
+	@$(SCRIPTS_DIR)/brew-cleanup.sh
 
 # Aliases
 uninstall: clean

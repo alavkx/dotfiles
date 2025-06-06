@@ -15,12 +15,21 @@ else
     echo
 fi
 
+# Check Homebrew packages
+if command -v brew >/dev/null 2>&1; then
+    echo "🍺 Homebrew Packages:"
+    "$SCRIPT_DIR/brew-diff.sh" | grep -v "Comparing installed vs Brewfile packages..."
+    echo
+else
+    echo "⚠️  Homebrew not found, skipping package diff"
+    echo
+fi
+
 # Check dotfiles symlinks
 echo "🔗 Dotfiles Links:"
 "$SCRIPT_DIR/status.sh" | grep -E "(❌|⚠️|📄)" || echo "✅ All dotfiles properly linked"
 echo
 
 # Future: Add other diff checks here
-# - Brew packages
 # - System preferences differences
 # - Other tool configurations 

@@ -12,8 +12,15 @@ else
     echo "⚠️  VSCode not found, skipping extension export"
 fi
 
+# Export Homebrew packages
+if command -v brew >/dev/null 2>&1; then
+    echo "🍺 Exporting Homebrew packages..."
+    "$SCRIPT_DIR/brew-export.sh"
+else
+    echo "⚠️  Homebrew not found, skipping package export"
+fi
+
 # Future: Add other sync operations here
-# - Brew packages
 # - System preferences
 # - Other tool configurations
 
