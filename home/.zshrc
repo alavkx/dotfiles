@@ -48,6 +48,9 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+# COUPLING WARNING: This .env logic couples user shell config to dotfiles tool
+# In production, this would be handled by tool-managed shell hooks
+# See ARCHITECTURE.md for cleaner separation approach
 if [[ ! -f ~/.env ]]; then
   echo "EXAMPLE_VAR=\"example_value\"" > ~/.env
 fi

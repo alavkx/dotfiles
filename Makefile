@@ -1,4 +1,4 @@
-.PHONY: help install test status backup clean verify sync diff cleanup
+.PHONY: help install test status backup clean verify sync diff env env-set cleanup
 .PHONY: vscode-export vscode-install vscode-diff brew-export brew-install brew-diff brew-cleanup
 
 SCRIPTS_DIR := scripts
@@ -11,6 +11,8 @@ help: ## Show available commands
 	@echo '  status       Show current symlink status'
 	@echo '  sync         Export current state to dotfiles'
 	@echo '  diff         Show what needs syncing'
+	@echo '  env          List environment variables'
+	@echo '  env set      Edit environment variables'
 	@echo ''
 	@echo 'Maintenance:'
 	@echo '  test         Run full test suite'
@@ -42,6 +44,12 @@ sync: ## Export current state to dotfiles
 
 diff: ## Show what needs syncing
 	@$(SCRIPTS_DIR)/diff.sh
+
+env: ## List environment variables in ~/.env (use 'env set' to edit)
+	@$(SCRIPTS_DIR)/env-list.sh
+
+env-set: ## Edit ~/.env file and reload environment variables  
+	@$(SCRIPTS_DIR)/env-set.sh
 
 cleanup: ## Remove unmanaged packages
 	@$(SCRIPTS_DIR)/cleanup.sh

@@ -1,6 +1,8 @@
 #!/bin/bash
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# COUPLING WARNING: Hard-coded path creates tight coupling between tool and profile data
+# See ARCHITECTURE.md for production solution using configurable profile locations
 HOME_FILES_DIR="$DOTFILES_DIR/home"
 FILES=(".zshrc" ".gitconfig")
 VSCODE_DIR="$HOME/Library/Application Support/Code/User"

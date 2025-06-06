@@ -38,5 +38,13 @@ if [[ $# -eq 0 ]]; then
     exit 0
 fi
 
-# Pass all arguments to make
-make "$@" 
+# Handle compound commands
+if [[ "$1" == "env" && "$2" == "set" ]]; then
+    make env-set
+elif [[ "$1" == "env" ]]; then
+    # Just 'env' with no other args
+    make env
+else
+    # Pass all arguments to make as-is
+    make "$@"
+fi 

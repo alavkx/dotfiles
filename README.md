@@ -70,3 +70,14 @@ Remove packages not managed by dotfiles:
 ```bash
 config cleanup     # Interactive removal of unmanaged packages
 ```
+
+## Architecture & Limitations
+
+This system was built for personal use and has architectural debt that would need addressing for production use. See [`ARCHITECTURE.md`](ARCHITECTURE.md) for detailed analysis of:
+
+- **Coupling issues** between tool and profile data
+- **Design limitations** in the current approach
+- **Production architecture** for open source distribution
+- **Migration path** toward better separation of concerns
+
+Key limitation: The `home/` directory is tightly coupled to the tool scripts, and your `.zshrc` contains tool-specific code. A production version would separate the tool installation from user profile data.
