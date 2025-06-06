@@ -21,3 +21,11 @@
 	autoStash = true
 [core]
 	editor = code --wait
+[init]
+	templateDir = /Users/alavoie/.git-template
+[rerere]
+	enabled = true
+[merge]
+	conflictstyle = diff3
+[diff]
+	algorithm = histogram
