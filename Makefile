@@ -1,4 +1,4 @@
-.PHONY: help install test status backup clean verify sync diff env env-set cleanup
+.PHONY: help install test status backup clean verify pull sync diff env env-set cleanup
 .PHONY: vscode-export vscode-install vscode-diff brew-export brew-install brew-diff brew-cleanup
 
 SCRIPTS_DIR := scripts
@@ -9,7 +9,8 @@ help: ## Show available commands
 	@echo 'Core:'
 	@echo '  install      Install dotfiles and extensions'
 	@echo '  status       Show current symlink status'
-	@echo '  sync         Export current state to dotfiles'
+	@echo '  pull         Export current state to dotfiles'
+	@echo '  sync         Pull + commit + push to git'
 	@echo '  diff         Show what needs syncing'
 	@echo '  env          List environment variables'
 	@echo '  env set      Edit environment variables'
@@ -39,8 +40,19 @@ clean: ## Remove symlinks and restore from backup
 verify: ## Verify all dotfiles are properly linked
 	@$(SCRIPTS_DIR)/verify.sh
 
-sync: ## Export current state to dotfiles
+pull: ## Export current state to dotfiles
 	@$(SCRIPTS_DIR)/sync.sh
+
+sync: ## Pull current state + commit + push to git
+	@$(SCRIPTS_DIR)/sync.sh
+	@echo "Committing and pushing changes..."
+	@git add -A
+	@if git diff --staged --quiet; then \
+		echo "No changes to commit"; \
+	else \
+		git commit -m "Update dotfiles: $(shell date '+%Y-%m-%d %H:%M')" && \
+		git push; \
+	fi
 
 diff: ## Show what needs syncing
 	@$(SCRIPTS_DIR)/diff.sh

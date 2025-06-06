@@ -1,6 +1,6 @@
 # Dotfiles Management System
 
-Personal configuration files managed with automated syncing and installation.
+**Opinionated, automated development environment management.** This tool takes care of the entire dotfiles workflow so you can focus on coding, not configuration maintenance.
 
 ## Structure
 
@@ -28,12 +28,13 @@ The `config` command is globally accessible after installation - use it from any
 
 ## Usage
 
-**Core Commands:**
+**Workflow Commands:**
 
-- `config install` - Install dotfiles and extensions
-- `config status` - Show current symlink status
-- `config sync` - Export current state to dotfiles
+- `config install` - Install everything from dotfiles to new machine
+- `config sync` - Export current state + commit + push (full sync)
+- `config pull` - Export current state to dotfiles (no git operations)
 - `config diff` - Show what needs syncing
+- `config status` - Show current symlink status
 
 **Maintenance:**
 
@@ -45,23 +46,40 @@ The `config` command is globally accessible after installation - use it from any
 
 > **Note:** Use `make <command>` when in the dotfiles directory, or `config <command>` from anywhere.
 
-## Sync Workflow
+## Opinionated Workflow
 
-When you install new packages, extensions, or change settings:
+**The tool handles the full workflow automatically:**
+
+### Daily Usage
 
 ```bash
-config sync        # Export current state to dotfiles
-git add -A         # Stage changes
-git commit -m "Update packages and extensions"
-git push           # Sync to GitHub
+# After installing packages, extensions, or changing settings:
+config sync        # Exports state + commits + pushes automatically
 ```
 
-On other machines:
+### New Machine Setup
 
 ```bash
-git pull           # Get latest dotfiles
+git clone your-dotfiles-repo
+cd your-dotfiles
+make install       # Installs everything
+```
+
+### On Other Machines
+
+```bash
+git pull           # Get latest changes
 config install     # Install new packages/extensions/settings
 ```
+
+**Why Opinionated?** You shouldn't waste time on dotfiles maintenance. This tool makes decisions for you:
+
+- Automatic commit messages with timestamps
+- Standardized file structure
+- Integrated git operations
+- One command does everything
+
+> **For Power Users:** Use `config pull` if you want to export state without git operations (e.g., to review changes before committing)
 
 ## Cleanup
 
