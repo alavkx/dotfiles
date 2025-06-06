@@ -13,14 +13,24 @@ make status     # Check current state
 
 - `.zshrc` - Shell configuration with git aliases and environment setup
 - `.gitconfig` - Git configuration
+- `.vscode/` - VSCode settings and extensions
 
 ## Usage
 
-| Command        | Purpose                              |
-| -------------- | ------------------------------------ |
-| `make install` | Create symlinks from `~` to dotfiles |
-| `make test`    | Run full test suite                  |
-| `make status`  | Show symlink status                  |
-| `make verify`  | Validate installation                |
-| `make backup`  | Create timestamped backups           |
-| `make clean`   | Remove symlinks, restore backups     |
+**Core Commands:**
+
+- `make install` - Install dotfiles and VSCode extensions
+- `make status` - Show current symlink status
+- `make test` - Run full test suite
+- `make verify` - Verify all links are correct
+
+**Maintenance:**
+
+- `make backup` - Create timestamped backups
+- `make clean` - Remove symlinks and restore backups
+
+**VSCode:**
+
+- `make vscode-export` - Export current extensions
+- `make vscode-install` - Install extensions from list
+- `make vscode-diff` - Compare installed vs dotfiles

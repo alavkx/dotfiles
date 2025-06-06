@@ -1,0 +1,14 @@
+bluebrown.yamlfmt
+bradlc.vscode-tailwindcss
+eliverlara.andromeda
+esbenp.prettier-vscode
+ms-azuretools.vscode-containers
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-pylance
+ms-vscode.makefile-tools
+msoffice.microsoft-office-add-in-debugger
+redhat.vscode-yaml
+stivo.tailwind-fold
+usernamehw.errorlens
+yummygum.city-lights-icon-vsc
